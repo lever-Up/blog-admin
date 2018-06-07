@@ -61,6 +61,7 @@
         }
         .center {
             flex: 1;
+            padding: 15px;
         }
     }
 </style>
