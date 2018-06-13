@@ -6,6 +6,8 @@ const Article = () => import('../components/Article');
 const Category = () => import('../components/Category');
 const User = () => import('../components/User');
 
+const ArticleAdd = () => import('../components/ArticleAdd');
+
 Vue.use(Router);
 
 export default new Router({
@@ -13,6 +15,7 @@ export default new Router({
     routes: [
         {path: '/', name: 'home', component: Home},
         {path: '/article', name: 'article', component: Article},
+        {path: '/article/add', name: 'articleAdd', component: ArticleAdd},
         {path: '/category', name: 'category', component: Category},
         {path: '/user', name: 'user', component: User}
     ]

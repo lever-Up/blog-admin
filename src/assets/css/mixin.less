@@ -1,0 +1,58 @@
+@border-color: #ddd;
+
+.ad-button {
+  display: inline-block;
+  background-color: #fff;
+  border: solid 1px @border-color;
+  border-radius: 4px;
+  color: #666;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 3px 15px;
+  font-size: 14px;
+  vertical-align: middle;
+  box-sizing: border-box;
+  &:hover {
+    border-color: #07f;
+    color: #07f;
+  }
+}
+
+.ad-input-comm {
+  border: solid 1px @border-color;
+  border-radius: 4px;
+  height: 28px;
+  box-sizing: border-box;
+  vertical-align: middle;
+  padding: 0 6px;
+}
+
+.ad-text {
+  .ad-input-comm;
+}
+
+.ad-sel {
+  .ad-input-comm;
+}
+
+.ad-area {
+  .ad-input-comm;
+}
+
+.ad-title {
+  position: relative;
+  margin: 8px 0;
+  padding-left: 10px;
+  font-size: 16px;
+  &:before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 1px;
+    height: 80%;
+    border-left: solid 3px #666;
+    margin: auto;
+    bottom: 0;
+  }
+}

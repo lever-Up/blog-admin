@@ -15,28 +15,49 @@
 </template>
 
 <script>
+    import {mapState, mapActions} from 'vuex'
     export default {
-        name: "Article"
+        name: "Article",
+        data() {
+            return {}
+        },
+        mounted(){
+            this.queryArticle();
+
+        },
+        computed: {
+            ...mapState([
+                'articleList'
+            ]),
+        },
+        methods: {
+            ...mapActions([
+                'queryArticle'
+            ]),
+        },
     }
 </script>
 
 <style lang="less" scoped>
+    @import "../assets/css/mixin";
     .opts {
         display: flex;
         .btn-add {
-
+            .ad-button;
+            margin-right: 20px;
         }
         .filter {
             .text {
-
+                .ad-text;
             }
             .btn-search {
-
+                .ad-button;
             }
         }
     }
     .title {
-
+        .ad-title;
+        margin-top: 16px;
     }
     .list {
 
