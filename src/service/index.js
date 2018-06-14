@@ -2,7 +2,7 @@ import request from '../utils/request'
 
 export function articleQuery(params={}) {
     return request('/blog/article', {
-        params: params.data || {}
+        params: params
     })
 }
 
@@ -13,6 +13,6 @@ export function articleGet(params) {
 export function articleAdd(params={}) {
     return request('/blog/article', {
         method: 'post',
-        data: params.data || {}
+        data: params
     })
 }

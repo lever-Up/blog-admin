@@ -17,5 +17,8 @@ export default {
     async addArticle({commit, state}, params) {
         let res = await articleAdd(params);
         commit(TYPES.ADD_ARTICLE, res)
+    },
+    async removeArticle({commit, state}, params) {
+
     }
 }

@@ -5,7 +5,7 @@
             <div class="row">
                 <div class="cell label">类目：</div>
                 <div class="cell cont">
-                    <select class="sel">
+                    <select class="sel" v-model="categoryId">
                         <option value="0"> </option>
                         <option value="1">web前端</option>
                         <option value="2">php技术见解</option>
@@ -15,26 +15,48 @@
             <div class="row">
                 <div class="cell label">标题：</div>
                 <div class="cell cont">
-                    <input type="text" class="text">
+                    <input type="text" class="text" v-model="title">
                 </div>
             </div>
             <div class="row">
                 <div class="cell label">内容：</div>
                 <div class="cell cont">
-                    <textarea class="area"></textarea>
+                    <textarea class="area" v-model="content"></textarea>
                 </div>
             </div>
         </div>
         <div class="footer">
             <router-link to="/article" class="btn">返回</router-link>
-            <button class="btn">保存</button>
+            <button class="btn" @click="save">保存</button>
         </div>
     </div>
 </template>
 
 <script>
+    import {mapMutations, mapActions, mapState} from 'vuex'
+    import * as TYPES from '../store/mutation-types'
     export default {
-        name: "ArticleAdd"
+        data() {
+            return {
+                categoryId: '',
+                title: '',
+                content: ''
+            }
+        },
+        computed: {
+            ...mapState(['categoryList']),
+        },
+        methods: {
+            ...mapActions(['addArticle']),
+            save() {
+                let data = {
+                    categoryId: this.categoryId,
+                    title: this.title,
+                    content: this.content
+                };
+                this.addArticle(data)
+            }
+        }
     }
 </script>
 

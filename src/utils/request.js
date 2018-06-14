@@ -6,7 +6,8 @@ export default (url, options={}) => {
         timeout: 5000
     };
     let commonHeaders = {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
+        'uid': '12365263'
     };
     options = {...commonOptions, ...options};
     options.headers = {
@@ -15,4 +16,18 @@ export default (url, options={}) => {
     };
 
     return axios(url, options)
+        .then( response => {
+            if (response.status >= 200 && response.status < 300) {
+                return response;
+            }
+            const error = new Error(response.statusText);
+            error.msg = {
+                data: response.data,
+                status: response.status,
+                statusText: response.statusText
+            };
+            throw error;
+        })
+        .then( ({data}) => (data) )
+        .catch( ({msg}) => (msg) );
 }
