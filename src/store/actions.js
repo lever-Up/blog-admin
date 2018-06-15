@@ -1,7 +1,10 @@
 import {
     articleQuery,
     articleGet,
-    articleAdd
+    articleAdd,
+    articleModify,
+    articleRemove,
+    articleBatchRemove
 } from '../service'
 import * as TYPES from './mutation-types'
 
@@ -18,7 +21,16 @@ export default {
         let res = await articleAdd(params);
         commit(TYPES.ADD_ARTICLE, res)
     },
+    async modifyArticle({commit, state}, params) {
+        let res = await articleModify(params);
+        commit(TYPES.MODIFY_ARTICLE, res)
+    },
     async removeArticle({commit, state}, params) {
-
+        let res = await articleRemove(params);
+        commit(TYPES.REMOVE_ARTICLE, res)
+    },
+    async removeBatchArticle({commit, state}, params) {
+        let res = await articleBatchRemove(params);
+        commit(TYPES.REMOVE_BATCH_ARTICLE, res)
     }
 }

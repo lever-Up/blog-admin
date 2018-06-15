@@ -16,7 +16,7 @@ export default new Router({
         {path: '/', name: 'home', component: Home},
         {path: '/article', name: 'articles', component: Article},
         {path: '/article/add', name: 'articleAdd', component: ArticleAdd},
-        {path: '/article/:id', name: 'article', component: Article},
+        {path: '/article/:id', name: 'article', component: ArticleAdd},
         {path: '/category', name: 'category', component: Category},
         {path: '/user', name: 'user', component: User}
     ]

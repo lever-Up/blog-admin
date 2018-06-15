@@ -40,6 +40,7 @@
         flex-direction: column;
         position: absolute;
         width: 100%;
+        min-width: 1024px;
         height: 100%;
         overflow: auto;
     }

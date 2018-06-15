@@ -34,27 +34,46 @@
 
 <script>
     import {mapMutations, mapActions, mapState} from 'vuex'
-    import * as TYPES from '../store/mutation-types'
     export default {
         data() {
-            return {
-                categoryId: '',
-                title: '',
-                content: ''
+            return { }
+        },
+        created() {
+            let id = this.$route.params.id;
+            if( id ) {
+                this.getArticle({id});
             }
+            this.SET_PARAM({ key:'article', value:{} })
         },
         computed: {
-            ...mapState(['categoryList']),
+            ...mapState(['categoryList', 'article']),
+            title: {
+                get() { return this.article.title || '' },
+                set(val) { this.article.title = val }
+            },
+            content: {
+                get() { return this.article.content || '' },
+                set(val) { this.article.content = val }
+            },
+            categoryId: {
+                get() { return this.article.categoryId || '' },
+                set(val) { this.article.categoryId = val }
+            }
         },
         methods: {
-            ...mapActions(['addArticle']),
+            ...mapMutations(['SET_PARAM']),
+            ...mapActions(['addArticle', 'getArticle', 'modifyArticle']),
             save() {
                 let data = {
                     categoryId: this.categoryId,
                     title: this.title,
                     content: this.content
                 };
-                this.addArticle(data)
+                if(this.article.id) {
+                    this.modifyArticle({id: this.article.id, data})
+                }else{
+                    this.addArticle(data)
+                }
             }
         }
     }

@@ -26,8 +26,14 @@ export function articleModify(params={}) {
 }
 // 删除博文
 export function articleRemove(params={}) {
-    return request(`/blog/article`, {
-        method: 'del',
+    return request(`/blog/article/${params.id}`, {
+        method: 'delete'
+    })
+}
+// 批量删除博文
+export function articleBatchRemove(params={}) {
+    return request(`/blog/article/batch`, {
+        method: 'delete',
         data: params
     })
 }

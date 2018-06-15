@@ -11,7 +11,9 @@
         <div class="title">文章列表</div>
         <div class="list">
             <div class="row row-head">
-                <div class="cell cell-cb"></div>
+                <div class="cell cell-cb">
+                    <input type="checkbox" :checked="articleList.length>0 && articleList.length===cbIds.length" @change="allSelect">
+                </div>
                 <div class="cell cell-index">序号</div>
                 <div class="cell cell-title">标题</div>
                 <div class="cell cell-user">类目</div>
@@ -23,7 +25,7 @@
             </div>
             <div v-for="(item, index) in articleList" :key="item.id" class="row">
                 <div class="cell cell-cb">
-                    <input type="checkbox" :value="item.id" v-model="cbIds">
+                    <input type="checkbox" :value="item.id" :checked="cbIds.includes(item.id)" v-model="cbIds">
                 </div>
                 <div class="cell cell-index">{{index}}</div>
                 <div class="cell cell-title">
@@ -53,9 +55,18 @@
             ...mapState(['articleList']),
         },
         methods: {
-            ...mapActions(['queryArticle', 'removeArticle']),
+            ...mapActions(['queryArticle', 'removeBatchArticle']),
             batchRemove() {
-                console.dir(this.cbIds)
+                if(this.cbIds.length > 0) {
+                    this.removeBatchArticle(this.cbIds);
+                }
+            },
+            allSelect(e) {
+                if(e.target.checked) {
+                    this.cbIds = this.articleList.map( item => item.id)
+                }else{
+                    this.cbIds = [];
+                }
             }
         },
         filters: {
@@ -117,6 +128,8 @@
                 &-title {
                     text-align: left;
                     padding-left: 10px;
+                    word-wrap:break-word;
+                    word-break:break-all;
                 }
                 &-user {
                     width: 120px;
