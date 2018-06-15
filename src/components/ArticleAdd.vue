@@ -43,7 +43,14 @@
             if( id ) {
                 this.getArticle({id});
             }
-            this.SET_PARAM({ key:'article', value:{} })
+            this.SET_PARAM({
+                key:'article',
+                value:{
+                    title: '',
+                    content: '',
+                    categoryId: ''
+                }
+            })
         },
         computed: {
             ...mapState(['categoryList', 'article']),

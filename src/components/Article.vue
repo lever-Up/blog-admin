@@ -71,7 +71,7 @@
         },
         filters: {
             time(timestamp) {
-                return moment(timestamp).format("YYYY-MM-DD　hh:mm");
+                return moment(timestamp).format("YYYY-MM-DD　HH:mm");
             }
         }
     }
