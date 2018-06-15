@@ -34,6 +34,8 @@ export function articleRemove(params={}) {
 export function articleBatchRemove(params={}) {
     return request(`/blog/article/batch`, {
         method: 'delete',
-        data: params
+        data: {
+            ids: params
+        }
     })
 }
