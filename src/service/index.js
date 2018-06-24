@@ -1,5 +1,14 @@
 import request from '../utils/request'
 
+// 登录
+export function toLogin(params={}) {
+  console.log(params)
+  return request('/blog/user/admin/login', {
+    method: 'post',
+    data: params
+  })
+}
+
 // 查询博文列表
 export function articleQuery(params={}) {
     return request('/blog/article', {
