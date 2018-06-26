@@ -2,6 +2,19 @@ import router from '../router'
 import * as TYPES from './mutation-types'
 
 export default {
+    [TYPES.LOGIN_USER](state, data) {
+        if (data.code === 0) {
+            router.replace('/')
+        }
+    },
+    [TYPES.STATUS_USER](state, data) {
+        console.log(data)
+        if (data.code === 0) {
+            state.user = data.data;
+        }else{
+            router.replace('/login')
+        }
+    },
     [TYPES.QUERY_ARTICLE](state, data) {
         if (data.code === 0) {
             state.articleList = data.data;
@@ -9,7 +22,6 @@ export default {
     },
     [TYPES.ADD_ARTICLE](state, data) {
         if (data.code === 0) {
-            // state.articleList.unshift(data.data);
             router.back();
         }
     },

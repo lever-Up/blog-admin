@@ -2,7 +2,8 @@ import axios from 'axios'
 
 export default (url, options={}) => {
     let commonOptions = {
-        baseURL: 'http://localhost:8098',
+        // baseURL: 'http://localhost:8098',
+        baseURL: 'http://120.77.178.13:8098',
         timeout: 5000
     };
     let commonHeaders = {
@@ -27,6 +28,9 @@ export default (url, options={}) => {
                 statusText: response.statusText
             };
             throw error;
+        })
+        .then( response => {
+            return response;
         })
         .then( ({data}) => (data) )
         .catch( ({msg}) => (msg) );

@@ -2,11 +2,14 @@ import request from '../utils/request'
 
 // 登录
 export function toLogin(params={}) {
-  console.log(params)
   return request('/blog/user/admin/login', {
     method: 'post',
     data: params
   })
+}
+// 获取登录用户信息
+export function statusLogin(params={}) {
+    return request('/blog/user/loginUser')
 }
 
 // 查询博文列表

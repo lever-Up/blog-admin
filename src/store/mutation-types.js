@@ -1,3 +1,6 @@
+export const LOGIN_USER = 'LOGIN_USER'
+export const STATUS_USER = 'STATUS_USER'
+
 export const QUERY_ARTICLE = 'QUERY_ARTICLE'
 export const GET_ARTICLE = 'GET_ARTICLE'
 export const ADD_ARTICLE = 'ADD_ARTICLE'
