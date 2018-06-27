@@ -7,8 +7,12 @@ export default {
             router.replace('/')
         }
     },
+    [TYPES.LOGOUT_USER](state, data) {
+        if (data.code === 0) {
+            router.replace('/login')
+        }
+    },
     [TYPES.STATUS_USER](state, data) {
-        console.log(data)
         if (data.code === 0) {
             state.user = data.data;
         }else{
@@ -43,6 +47,11 @@ export default {
     [TYPES.REMOVE_BATCH_ARTICLE](state, data) {
         if (data.code === 0) {
             state.articleList = state.articleList.filter(item => !data.data.includes(item.id))
+        }
+    },
+    [TYPES.QUERY_USER](state, data) {
+        if (data.code === 0) {
+            state.userList = data.data;
         }
     },
     SET_PARAM(state, param) {

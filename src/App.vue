@@ -8,6 +8,7 @@
             <div v-if="user.id">
                 <span class="label">用户：</span>
                 <span class="name">{{user.name}}</span>
+                <span class="out" @click="onLogout()">注销登录</span>
             </div>
         </div>
         <div class="wrap">
@@ -39,7 +40,10 @@
             ...mapState(['user']),
         },
         methods: {
-            ...mapActions(['getLoginUser']),
+            ...mapActions(['getLoginUser', 'logout']),
+            onLogout() {
+                this.logout()
+            }
         }
     }
 </script>
@@ -77,6 +81,15 @@
             }
             span {
                 -webkit-text-stroke: 0.3px #313836;
+            }
+        }
+        .out {
+            margin-left: 10px;
+            padding-left: 10px;
+            border-left: solid 1px #dedede;
+            cursor: pointer;
+            &:hover {
+                color: #f00;
             }
         }
     }

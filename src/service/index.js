@@ -2,14 +2,20 @@ import request from '../utils/request'
 
 // 登录
 export function toLogin(params={}) {
-  return request('/blog/user/admin/login', {
+  return request('/blog/admin/login', {
     method: 'post',
     data: params
   })
 }
+// 注销登录
+export function doLogout() {
+    return request('/blog/admin/logout', {
+        method: 'delete'
+    })
+}
 // 获取登录用户信息
 export function statusLogin(params={}) {
-    return request('/blog/user/loginUser')
+    return request('/blog/admin/loginUser')
 }
 
 // 查询博文列表
@@ -49,5 +55,12 @@ export function articleBatchRemove(params={}) {
         data: {
             ids: params
         }
+    })
+}
+
+// 用户 - 列表
+export function userQuery(params={}) {
+    return request('/blog/user', {
+        params: params
     })
 }
