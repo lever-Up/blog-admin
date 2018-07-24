@@ -34,7 +34,7 @@
             SideBar
         },
         created() {
-            this.getLoginUser()
+            this.getLoginUser();
         },
         computed: {
             ...mapState(['user']),
@@ -67,7 +67,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        height: 55px;
+        height: 65px;
         border-bottom: solid 1px #eee;
         padding: 0 25px;
         .logo {
@@ -101,6 +101,7 @@
         .left {
             width: 200px;
             border-right: solid 1px #eee;
+            background-color: #f7f7f7;
         }
         .center {
             flex: 1;

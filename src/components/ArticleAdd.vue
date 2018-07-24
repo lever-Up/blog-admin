@@ -87,7 +87,7 @@
 </script>
 
 <style lang="less" scoped>
-    @import "../assets/css/mixin";
+    @import (reference) "../assets/css/mixin";
     .add-form{
         .title {
             .ad-title;

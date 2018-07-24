@@ -8,6 +8,8 @@ import {
     articleModify,
     articleRemove,
     articleBatchRemove,
+    cateAdd,
+    cateQuery,
     userQuery
 } from '../service'
 import * as TYPES from './mutation-types'
@@ -59,5 +61,9 @@ export default {
     async queryUser({commit, state}, params) {
         let res = await userQuery(params);
         commit(TYPES.QUERY_USER, res)
+    },
+    async queryCate({commit, state}, params) {
+        let res = await articleQuery(params);
+        commit(TYPES.QUERY_ARTICLE, res)
     }
 }

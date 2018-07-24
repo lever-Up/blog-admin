@@ -58,6 +58,20 @@ export function articleBatchRemove(params={}) {
     })
 }
 
+// 查询类目列表
+export function cateQuery(params={}) {
+    return request('/blog/category', {
+        params: params
+    })
+}
+// 添加类目
+export function cateAdd(params) {
+    return request('/blog/category', {
+        method: 'post',
+        data: params
+    })
+}
+
 // 用户 - 列表
 export function userQuery(params={}) {
     return request('/blog/user', {
